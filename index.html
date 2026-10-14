@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <meta name="description" content="The Pawcure offers at-home pet grooming and veterinary home-visit enquiries in Lucknow.">
+  <title>The Pawcure | Pet Care at Your Doorstep</title>
+  <style>
+    :root {
+      --bg: #101114;
+      --panel: #1a1c22;
+      --text: #f7f7fa;
+      --muted: #b8bdc8;
+      --green: #8be36d;
+      --pink: #ff8bb4;
+      --blue: #88caff;
+      --line: #30333c;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, Arial, sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, 92%); margin: auto; }
+    header {
+      position: sticky;
+      top: 0;
+      background: #101114ed;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      z-index: 9;
+    }
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand { font-weight: 900; font-size: 1.25rem; display: flex; align-items: center; gap: 10px; }
+    .paw {
+      display: grid;
+      place-items: center;
+      background: var(--green);
+      color: #101114;
+      border-radius: 14px;
+      width: 42px;
+      height: 42px;
+      font-size: 24px;
+    }
+    .brand small {
+      display: block;
+      font-size: .65rem;
+      color: var(--muted);
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+    .links { display: flex; gap: 22px; color: #ddd; font-size: .92rem; }
+    .btn {
+      display: inline-block;
+      background: var(--green);
+      color: #101114;
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 19px;
+      font-weight: 800;
+      cursor: pointer;
+      text-align: center;
+      font: inherit;
+      font-weight: 800;
+    }
+    .btn.ghost { background: transparent; border: 1px solid #555963; color: #fff; }
+    .btn.pink { background: var(--pink); }
+    .hero {
+      padding: 75px 0;
+      background:
+        radial-gradient(ellipse at 85% 15%, #30412666, transparent 36%),
+        radial-gradient(ellipse at 10% 70%, #42283d55, transparent 32%);
+    }
+    .grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 45px; align-items: center; }
+    .pill, .kicker {
+      color: var(--green);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .pill {
+      display: inline-block;
+      border: 1px solid #41454d;
+      border-radius: 999px;
+      padding: 7px 12px;
+      letter-spacing: .5px;
+      text-transform: none;
+    }
+    h1 { font-size: clamp(2.8rem, 6.5vw, 5.3rem); line-height: 1; letter-spacing: -3px; margin: 22px 0; }
+    h1 em { font-style: normal; color: var(--green); }
+    h1 strong { color: var(--pink); }
+    p { color: var(--muted); }
+    .hero p { font-size: 1.08rem; line-height: 1.8; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 25px 0; }
+    .art { min-height: 390px; display: grid; place-items: center; position: relative; }
+    .circle {
+      width: min(380px, 90%);
+      aspect-ratio: 1;
+      border-radius: 46% 54% 53% 47%;
+      background: linear-gradient(140deg, #b9f18f, #77d7c2);
+      display: grid;
+      place-items: center;
+      transform: rotate(-4deg);
+      box-shadow: 0 35px 90px #0005;
+    }
+    .animals { font-size: clamp(7rem, 15vw, 11rem); transform: rotate(4deg); }
+    .float {
+      position: absolute;
+      padding: 12px 15px;
+      border-radius: 16px;
+      background: #24262d;
+      border: 1px solid #444751;
+      font-weight: 800;
+    }
+    .one { top: 13%; left: 0; }
+    .two { bottom: 10%; right: 0; }
+    section { padding: 75px 0; }
+    .head { text-align: center; max-width: 690px; margin: 0 auto 38px; }
+    .head h2, .about h2, .booking h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.12;
+      letter-spacing: -1.3px;
+      margin: 10px 0;
+    }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card, .faq, .contactbox {
+      background: linear-gradient(150deg, #1d2027, #17191e);
+      border: 1px solid var(--line);
+      border-radius: 23px;
+      padding: 25px;
+    }
+    .icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 28px;
+      margin-bottom: 16px;
+      background: #293c27;
+    }
+    .card:nth-child(2) .icon { background: #432634; }
+    .card:nth-child(3) .icon { background: #243747; }
+    .card h3 { margin: 0 0 8px; }
+    .card p { margin: 0; }
+    .tag { display: block; color: var(--green); font-size: .84rem; font-weight: 800; margin-top: 17px; }
+    .about { background: #15171c; border-block: 1px solid #252830; }
+    .aboutgrid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 45px; align-items: center; }
+    .aboutart {
+      min-height: 300px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(140deg, #282d24, #30212b);
+      border-radius: 28px;
+      font-size: 8rem;
+    }
+    .ticks { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-weight: 750; }
+    .ticks span::before { content: "✓ "; color: var(--pink); }
+    .bookinggrid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 35px; align-items: start; }
+    .contactbox { margin-top: 18px; padding: 18px; }
+    .contactbox p { margin-bottom: 0; }
+    .form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+    }
+    .field { display: grid; gap: 6px; }
+    .field.full, .form .btn, .note { grid-column: 1 / -1; }
+    .field label { font-size: .85rem; font-weight: 750; }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      min-width: 0;
+      padding: 13px;
+      border-radius: 11px;
+      border: 1px solid #3a3d47;
+      background: #111216;
+      color: white;
+      font: inherit;
+    }
+    .field textarea { min-height: 90px; }
+    .note { font-size: .8rem; }
+    .faqs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .faq h3 { margin: 0 0 5px; font-size: 1rem; }
+    .faq p { margin: 0; font-size: .93rem; }
+    footer { background: #08090b; border-top: 1px solid #292b31; padding: 42px 0 22px; }
+    .footgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; }
+    .footerbrand { font-size: 1.5rem; font-weight: 900; }
+    .footerbrand em { color: var(--green); font-style: normal; }
+    .details { border-left: 2px solid var(--green); padding-left: 18px; }
+    .details a { display: block; margin: 9px 0; overflow-wrap: anywhere; }
+    .details a:hover { color: var(--green); }
+    .disclaimer { font-size: .78rem; color: #858b96; }
+    .copy { border-top: 1px solid #25272d; margin-top: 25px; padding-top: 16px; color: #858b96; font-size: .82rem; }
+    .wa {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      background: var(--green);
+      color: #101114;
+      font-weight: 900;
+      padding: 12px 16px;
+      border-radius: 999px;
+      z-index: 8;
+      box-shadow: 0 10px 30px #0008;
+    }
+    @media (max-width: 800px) {
+      .links { display: none; }
+      .grid, .aboutgrid, .bookinggrid, .footgrid { grid-template-columns: 1fr; }
+      .hero { padding: 48px 0; }
+      .art { min-height: 300px; }
+      .circle { width: 300px; }
+      .cards { grid-template-columns: 1fr; }
+      .aboutart { min-height: 230px; }
+      .form { grid-template-columns: 1fr; }
+      .field.full, .form .btn, .note { grid-column: 1; }
+      .faqs { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 500px) {
+      h1 { letter-spacing: -2px; }
+      .actions .btn { width: 100%; }
+      .ticks { grid-template-columns: 1fr; }
+      .brand { font-size: 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="#home"><span class="paw" aria-hidden="true">🐾</span><span>The Pawcure<small>Pet care at your doorstep</small></span></a>
+        <div class="links"><a href="#services">Services</a><a href="#about">About</a><a href="#booking">Book a visit</a><a href="#contact">Contact</a></div>
+        <a class="btn" href="#booking">Book now →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap grid">
+        <div>
+          <div class="pill">🐾 Now accepting enquiries in Lucknow</div>
+          <h1>Pet care,<br><em>with love.</em><br>At <strong>your door.</strong></h1>
+          <p>Thoughtful grooming and professional veterinary home-visit enquiries—made more convenient for pets and the people who love them. Less travel stress, more care at home.</p>
+          <div class="actions">
+            <a class="btn" href="#booking">🐾 Book a home visit</a>
+            <a class="btn ghost" href="https://wa.me/918707269652?text=Hi%20The%20Pawcure%2C%20I%27d%20like%20to%20enquire%20about%20pet%20care." target="_blank" rel="noopener noreferrer">WhatsApp us ↗</a>
+          </div>
+          <p>🏡 Home convenience &nbsp; • &nbsp; 🐶 Dogs & cats &nbsp; • &nbsp; 💚 Clear pricing before visit</p>
+        </div>
+        <div class="art" aria-label="Illustration of pets">
+          <div class="circle"><div class="animals" aria-hidden="true">🐶🐱</div></div>
+          <div class="float one">💚 Gentle grooming</div>
+          <div class="float two">🏠 Care at your doorstep</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="head"><div class="kicker">Our services</div><h2>Care for every kind of paw.</h2><p>Choose a service and send an enquiry. Availability, service details and charges will be confirmed before your appointment.</p></div>
+        <div class="cards">
+          <article class="card"><div class="icon" aria-hidden="true">🐕</div><h3>Dog Grooming at Home</h3><p>Bathing, brushing, coat care and grooming options planned around your dog's needs and comfort.</p><span class="tag">At-home service · Enquire for price</span></article>
+          <article class="card"><div class="icon" aria-hidden="true">🐈</div><h3>Cat Grooming</h3><p>Gentle coat-care and grooming enquiries for cats, with handling and comfort needs discussed in advance.</p><span class="tag">At-home service · Enquire for price</span></article>
+          <article class="card"><div class="icon" aria-hidden="true">🩺</div><h3>Veterinary Home Visit</h3><p>Request a home visit from a qualified veterinary professional. Availability and appropriate care are confirmed directly.</p><span class="tag">Professional consultation · Enquire for price</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="wrap aboutgrid">
+        <div class="aboutart" aria-hidden="true">🐾 🐶 🐱</div>
+        <div><div class="kicker">The Pawcure difference</div><h2>Care that comes to you.</h2><p>We want pet parents in Lucknow to have a convenient way to enquire about grooming and veterinary home visits—without a long trip across town.</p><p>Our approach is simple: clear communication, service options explained before booking, and care arranged with your pet's comfort in mind.</p><div class="ticks"><span>Convenient home visits</span><span>Dogs & cats welcome</span><span>Clear pricing first</span><span>Personal enquiry support</span></div><p><a class="btn pink" href="#booking">Tell us what your pet needs →</a></p></div>
+      </div>
+    </section>
+
+    <section id="booking">
+      <div class="wrap bookinggrid">
+        <div class="booking">
+          <div class="kicker">Easy booking</div><h2>Tell us about your pet.</h2><p>Fill in the details and choose WhatsApp or email. Your request will open with the information filled in, ready for you to send.</p>
+          <div class="contactbox"><b>🏡 Service area</b><p>Lucknow, Uttar Pradesh</p></div>
+          <div class="contactbox"><b>💬 Want to ask first?</b><p>Message us for service details, availability and an estimate.</p><p><a class="btn" href="https://wa.me/918707269652?text=Hi%20The%20Pawcure%2C%20please%20share%20your%20service%20details." target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a></p></div>
+        </div>
+
+        <form class="form" id="bookingForm">
+          <div class="field"><label for="customer">Your name *</label><input id="customer" name="customer" placeholder="Full name" autocomplete="name" required></div>
+          <div class="field"><label for="phone">Your phone *</label><input id="phone" name="phone" placeholder="Mobile number" autocomplete="tel" required inputmode="tel"></div>
+          <div class="field"><label for="pet">Pet type *</label><select id="pet" name="pet" required><option value="">Select pet</option><option>Dog</option><option>Cat</option><option>Other</option></select></div>
+          <div class="field"><label for="service">Service required *</label><select id="service" name="service" required><option value="">Select service</option><option>Dog grooming at home</option><option>Cat grooming</option><option>Veterinary home visit</option><option>Need guidance</option></select></div>
+          <div class="field"><label for="date">Preferred date</label><input id="date" name="date" type="date"></div>
+          <div class="field"><label for="time">Preferred time</label><select id="time" name="time"><option value="">Flexible</option><option>Morning (9 AM–12 PM)</option><option>Afternoon (12 PM–4 PM)</option><option>Evening (4 PM–7 PM)</option></select></div>
+          <div class="field full"><label for="address">Area / address in Lucknow *</label><input id="address" name="address" placeholder="Locality and nearby landmark" autocomplete="street-address" required></div>
+          <div class="field full"><label for="notes">Pet name, breed, age or notes</label><textarea id="notes" name="notes" placeholder="Anything that will help us understand your request"></textarea></div>
+          <p class="note">No online payment is taken here. We confirm availability and final price with you first.</p>
+          <button class="btn" type="submit">Send booking request on WhatsApp ↗</button>
+          <button class="btn ghost" type="button" id="emailBooking">Send booking request by email ✉</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="head"><div class="kicker">Before you book</div><h2>A few helpful notes.</h2></div>
+        <div class="faqs">
+          <article class="faq"><h3>How much does it cost?</h3><p>Share your pet type, service and locality to request a quote. The final price is confirmed before the visit.</p></article>
+          <article class="faq"><h3>Do you cover all of Lucknow?</h3><p>Availability may depend on your locality. Send your area with your enquiry to confirm.</p></article>
+          <article class="faq"><h3>Is my appointment confirmed instantly?</h3><p>No, this form sends an enquiry. The team will contact you to confirm timing and price.</p></article>
+          <article class="faq"><h3>What about urgent health concerns?</h3><p>For emergencies or serious symptoms, contact a qualified veterinarian or emergency veterinary facility promptly.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="wrap">
+      <div class="footgrid">
+        <div><div class="footerbrand">🐾 The <em>Pawcure</em></div><p>Pet grooming and veterinary home-visit enquiries in Lucknow.<br>Care that feels closer, right at your doorstep.</p><p>For service queries, appointment availability and general information, contact us below.</p></div>
+        <div class="details"><div class="kicker">Contact & enquiries</div><p><b>Aditya Chaudhary</b></p><a href="tel:+918707269652">📞 8707269652 · Calling</a><a href="https://wa.me/918707269652" target="_blank" rel="noopener noreferrer">💬 8707269652 · WhatsApp</a><a href="mailto:Thepawcure101@gmail.com">✉ Thepawcure101@gmail.com</a><p>📍 Lucknow, Uttar Pradesh, India</p></div>
+      </div>
+      <p class="disclaimer">Veterinary services are provided only by qualified veterinary professionals, subject to availability and professional assessment. Website enquiries do not replace diagnosis or emergency care. Prices and availability are confirmed before booking.</p>
+      <div class="copy">© <span id="year"></span> The Pawcure. All rights reserved. Made with care for pets & their people 🐾</div>
+    </div>
+  </footer>
+
+  <a class="wa" href="https://wa.me/918707269652?text=Hi%20The%20Pawcure%2C%20I%20have%20a%20pet%20care%20enquiry." target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const form = document.getElementById('bookingForm');
+
+    function bookingMessage() {
+      const data = new FormData(form);
+      return `Hi The Pawcure, I'd like to request a pet-care booking.
+
+Name: ${data.get('customer')}
+Phone: ${data.get('phone')}
+Pet type: ${data.get('pet')}
+Service: ${data.get('service')}
+Preferred date: ${data.get('date') || 'Flexible'}
+Preferred time: ${data.get('time') || 'Flexible'}
+Area/address: ${data.get('address')}
+Pet details/notes: ${data.get('notes') || 'Not provided'}
+
+Please confirm availability and final price before booking.`;
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (form.reportValidity()) {
+        const url = 'https://wa.me/918707269652?text=' + encodeURIComponent(bookingMessage());
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
+    });
+
+    document.getElementById('emailBooking').addEventListener('click', function () {
+      if (form.reportValidity()) {
+        const subject = encodeURIComponent('The Pawcure - Pet Care Booking Enquiry');
+        const body = encodeURIComponent(bookingMessage());
+        window.location.href = 'mailto:Thepawcure101@gmail.com?subject=' + subject + '&body=' + body;
+      }
+    });
+  </script>
+</body>
+</html>
